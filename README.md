@@ -1,16 +1,44 @@
-# React + Vite
+# Driver Payments Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application for managing driver payments with weekly (Batta) and monthly (Salary) settlement options.
 
-Currently, two official plugins are available:
+## Live Demo
+🔗 **Deployed App**: [Vercel Link](https://twilight-bus-driver-payment-portal.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Login Credentials
+- **Email**: demo@example.com
+- **Password**: demo123456
 
-## React Compiler
+## Features
+- ✅ Add trips for drivers with different payment preferences
+- ✅ Process weekly settlements (Batta component)
+- ✅ Process monthly settlements (Salary component)
+- ✅ View payment history with filters
+- ✅ Dashboard with real-time statistics
+- ✅ Authentication with Supabase Auth
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
+- **Frontend**: React + Vite
+- **Styling**: Tailwind CSS
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Supabase Auth
+- **Deployment**: Vercel
 
-## Expanding the ESLint configuration
+## Payment Logic
+- **Driver 1 (Batta Only)**: Total payment as Batta → Settled weekly
+- **Driver 2 (Salary Only)**: Total payment as Salary → Settled monthly
+- **Driver 3 (Both)**: Batta settled weekly, Salary settled monthly
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Setup Locally
+```bash
+npm install
+npm run dev
+```
+
+## Database Schema
+- drivers (payment preferences)
+- routes (batta & salary per trip)
+- vehicles
+- trips
+- settlements
+- settlement_items

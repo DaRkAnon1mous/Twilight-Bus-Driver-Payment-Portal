@@ -30,7 +30,7 @@ export default function SettlementProcessor({ drivers }) {
       .eq('status', 'completed')
       .order('trip_date', { ascending: false })
 
-    // Filter out trips that are already settled
+    
     const unsettledTrips = trips?.filter(trip => {
       return !trip.settlement_items || trip.settlement_items.length === 0
     }) || []
@@ -72,7 +72,7 @@ export default function SettlementProcessor({ drivers }) {
         tripSalary = salaryPerTrip
       }
 
-      // Only include amounts based on settlement type
+      
       if (settlementType === 'weekly') {
         battaAmount += tripBatta
         tripDetails.push({
@@ -139,7 +139,7 @@ export default function SettlementProcessor({ drivers }) {
 
       if (settlementError) throw settlementError
 
-      // Create settlement items
+      
       const items = settlementSummary.tripDetails.map(detail => ({
         settlement_id: settlement.id,
         trip_id: detail.trip_id,
